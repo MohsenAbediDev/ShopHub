@@ -7,7 +7,7 @@
 		<title>Shop Hub</title>
 	</head>
 	<body class="bg-white dark:bg-dark font-almarai h-full">
-		<div class="container h-full flex mt-10">
+		<div class="container h-full flex justify-between mt-10">
 			<div class="left flex flex-col w-[850px] h-full">
 				<!--? Search -->
 				<div class="relative">
@@ -16,9 +16,9 @@
 						type="text"
 						placeholder="Search"
 					/>
-
+					<!--? Input icon -->
 					<img
-						src="icons/Soild/Settings-adjust.svg"
+						src="./icons/Soild/Settings-adjust.svg"
 						class="absolute bottom-1.5 right-4"
 					/>
 				</div>
@@ -65,7 +65,7 @@
 					class="flex items-center justify-between mt-6 gap-x-5 gap-y-10 flex-wrap w-full h-10"
 				>
 					<!--? Products -->
-					<div class="flex w-96 h-60 overflow-hidden shadow-xl rounded-2xl">
+					<div class="w-96 h-60 flex overflow-hidden shadow-xl rounded-2xl">
 						<!--? Left Product Box (Image) -->
 						<div class="w-1/2 h-full bg-gray">
 							<img
@@ -90,7 +90,7 @@
 								<div
 									class="flex items-center p-1 ml-5 rounded-full bg-gray gap-1"
 								>
-									<!-- Select Colors Box -->
+									<!--? Select Colors Box -->
 									<span
 										class="w-4 h-4 rounded-full bg-white cursor-pointer"
 									></span>
@@ -130,7 +130,6 @@
 										src="icons/Outline/Shopping-cart.svg"
 										class="cursor-pointer"
 									/>
-
 									<img src="icons/Outline/Heart.svg" class="cursor-pointer" />
 								</div>
 							</div>
@@ -139,7 +138,29 @@
 				</div>
 			</div>
 
-			<div class="right"></div>
+			<div class="fixed right-0 w-32 h-fit">
+				<div
+					class="mt-12 bg-white shadow-xl rounded-2xl flex items-center gap-y-10 flex-col w-1/2 h-full px-1 py-5"
+				>
+					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Heart.svg" />
+					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Wallet.svg" />
+					<img
+						class="w-9 h-9 cursor-pointer"
+						src="./icons/Soild/Shopping-cart.svg"
+					/>
+					<div class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
+						<img class="w-9 h-9 cursor-pointer" src="./images/Avatar.png" />
+					</div>
+					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Sun.svg" />
+
+					<div id="theme" class="w-9 h-9 shadow-xl rounded-full">
+						<img
+							class="w-9 h-9 cursor-pointer"
+							src="./icons/Soild/Caret-left.svg"
+						/>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="Js/index.js"></script>
