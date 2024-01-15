@@ -37,7 +37,6 @@ module.exports = {
 			},
 		},
 		colors: {
-			secondary: '#393939',
 			white: '#ffffff',
 			gray: 'rgba(164,164,164,0.3)',
 			green: '#7FD287',
@@ -49,7 +48,9 @@ module.exports = {
 			lightBrown: '#D98B53',
 			blue: '#4DAAFF',
 			stroke: 'rgba(190,190,190,0.5)',
-			icon: '#585858'
+			icon: '#585858',
+			productsCount: 'rgba(255,147,69,0.8)',
+			off: 'rgba(2,102,12,0.5)'
 		},
 	},
 	plugins: [],
