@@ -18,8 +18,8 @@
 					/>
 					<!--? Input icon -->
 					<img
-						src="./icons/Soild/Settings-adjust.svg"
-						class="absolute bottom-1.5 right-4"
+						src="./icons/Soild/setting.png"
+						class="absolute w-4 h-4 bottom-2.5 right-4"
 					/>
 				</div>
 
@@ -125,12 +125,15 @@
 							<div class="flex items-center justify-between mt-4">
 								<p class="font-bold text-base">$30</p>
 
-								<div class="flex items-center gap-1">
+								<div class="flex items-center gap-2">
 									<img
-										src="icons/Outline/Shopping-cart.svg"
-										class="cursor-pointer"
+										src="./icons/Outline/shopping-cart.svg"
+										class="w-5 h-5 cursor-pointer"
 									/>
-									<img src="icons/Outline/Heart.svg" class="cursor-pointer" />
+									<img
+										src="./icons/Outline/heart.svg"
+										class="w-5 h-5 cursor-pointer"
+									/>
 								</div>
 							</div>
 						</div>
@@ -140,24 +143,71 @@
 
 			<div class="fixed right-0 w-32 h-fit">
 				<div
-					class="mt-12 bg-white shadow-xl rounded-2xl flex items-center gap-y-10 flex-col w-1/2 h-full px-1 py-5"
+					class="mt-12 overflow-hidden bg-white shadow-xl rounded-2xl flex items-center flex-col w-1/2 h-full px-1 pt-10"
 				>
-					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Heart.svg" />
-					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Wallet.svg" />
-					<img
-						class="w-9 h-9 cursor-pointer"
-						src="./icons/Soild/Shopping-cart.svg"
-					/>
-					<div class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
-						<img class="w-9 h-9 cursor-pointer" src="./images/Avatar.png" />
-					</div>
-					<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Sun.svg" />
+					<!--? Wishlist Icon -->
+					<div class="my-2 relative">
+						<!--? Notification -->
+						<span
+							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-red"
+						>
+							2
+						</span>
 
-					<div id="theme" class="w-9 h-9 shadow-xl rounded-full">
+						<!--? Icon -->
+						<img
+							class="mr-2 w-9 h-9 cursor-pointer"
+							src="./icons/Soild/Heart.svg"
+						/>
+					</div>
+
+					<!--? Wallet Icon -->
+					<div class="my-8 relative">
+						<!--? Icon -->
 						<img
 							class="w-9 h-9 cursor-pointer"
-							src="./icons/Soild/Caret-left.svg"
+							src="./icons/Soild/Wallet.svg"
 						/>
+					</div>
+
+					<!--? Cart Icon -->
+					<div class="my-6 relative">
+						<!--? Notification -->
+						<span
+							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-blue"
+						>
+							2
+						</span>
+
+						<!--? Icon -->
+						<img
+							class="mr-2 w-9 h-9 cursor-pointer"
+							src="./icons/Soild/Shopping-cart-dark.svg"
+						/>
+					</div>
+
+					<!--? Profile Icon -->
+					<div class="my-6 relative">
+						<!--? Icon -->
+						<div class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
+							<img class="w-9 h-9 cursor-pointer" src="./images/Avatar.png" />
+						</div>
+					</div>
+
+					<!--? Theme Icon -->
+					<div class="my-6 relative">
+						<!--? Icon -->
+						<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Sun.svg" />
+					</div>
+
+					<!--? NavBar Icon -->
+					<div class="my-6 relative">
+						<div id="nav" class="w-9 h-9 shadow-xl rounded-full">
+							<img
+								class="mr-2 w-9 h-9 cursor-pointer"
+								src="./icons/Soild/Caret-left.svg"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
