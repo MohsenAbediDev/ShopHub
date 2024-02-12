@@ -29,7 +29,7 @@ module.exports = {
 				'2xl': '5rem',
 			},
 			screens: {
-				sm: '480px',
+				sm: '500px',
 				md: '768px',
 				lg: '1024px',
 				xl: '1280px',
@@ -50,7 +50,9 @@ module.exports = {
 			stroke: 'rgba(190,190,190,0.5)',
 			icon: '#585858',
 			productsCount: 'rgba(255,147,69,0.8)',
-			off: 'rgba(2,102,12,0.5)'
+			off: 'rgba(2,102,12,0.5)',
+			offDark: 'rgba(178, 255, 185, 0.50)',
+			grayText: '#E0E0E0'
 		},
 	},
 	plugins: [],

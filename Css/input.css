@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.category {
+		@apply dark:bg-darkGray dark:shadow-none max-w-[8rem] transition-colors duration-300 dark:text-grayText border border-stroke shadow-md rounded-full text-center py-2 px-4;
+	}
+}

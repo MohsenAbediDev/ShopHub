@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="Css/output.css" />
 		<title>Shop Hub</title>
 	</head>
-	<body class="bg-white dark:bg-dark font-almarai h-full">
+	<body
+		class="bg-white dark:bg-dark transition-colors duration-300 font-almarai h-full"
+	>
 		<div class="container h-full flex justify-between mt-10">
-			<div class="left flex flex-col w-[850px] h-full">
+			<div class="left flex flex-col w-[850px] sm:w-full h-full">
 				<!--? Search -->
 				<div class="relative">
 					<input
-						class="dark:bg-darkGray shadow-md border border-stroke rounded-xl font-almarai w-full h-10 px-4 outline-none placeholder:font-light text-[#949494]"
+						class="dark:bg-darkGray transition-colors duration-300 shadow-md dark:shadow-none border border-stroke rounded-xl font-almarai w-full h-10 px-4 outline-none placeholder:font-light text-[#949494]"
 						type="text"
 						placeholder="Search"
 					/>
@@ -24,50 +26,32 @@
 				</div>
 
 				<!--? Categories -->
-				<div class="flex items-center mt-6 gap-5 w-full h-10">
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Best selliing</a
-					>
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Fasion</a
-					>
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Electronics</a
-					>
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Books</a
-					>
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Toys</a
-					>
-					<a
-						href="#"
-						class="border border-stroke shadow-md rounded-full min-w-32 text-center py-2 px-4"
-						>Medicine</a
-					>
+				<div class="flex items-center mt-6 gap-5 sm:flex-wrap w-full h-10 sm:h-auto">
+					<a href="#" class="category">Best selliing</a>
+					<a href="#" class="category">Fasion</a>
+					<a href="#" class="category">Electronics</a>
+					<a href="#" class="category">Books</a>
+					<a href="#" class="category">Toys</a>
+					<a href="#" class="category">Medicine</a>
 				</div>
 
 				<!--? Products Title -->
-				<h1 class="mt-6 font-bold text-3xl">Trending Items</h1>
+				<h1
+					class="mt-6 dark:text-grayText transition-colors duration-300 font-bold text-3xl"
+				>
+					Trending Items
+				</h1>
 
 				<!--? Products Container -->
 				<div
-					class="flex items-center justify-between mt-6 gap-x-5 gap-y-10 flex-wrap w-full h-10"
+					class="flex items-center justify-between sm:justify-center sm:flex-col mt-6 gap-x-5 sm:gap-x-0 gap-y-10 flex-wrap w-full h-10 sm:h-auto"
 				>
 					<!--? Products -->
-					<div class="w-96 h-60 flex overflow-hidden shadow-xl rounded-2xl">
+					<div
+						class="w-96 sm:w-full h-60 flex overflow-hidden transition-colors duration-300 dark:bg-darkGray dark:shadow-none shadow-xl rounded-2xl"
+					>
 						<!--? Left Product Box (Image) -->
-						<div class="w-1/2 h-full bg-gray">
+						<div class="w-1/2 h-full bg-gray transition-colors duration-300">
 							<img
 								class="w-full h-full"
 								src="./images/nike-react-miler.png"
@@ -77,14 +61,18 @@
 
 						<!--? Right Product Box (Details) -->
 						<div class="w-1/2 h-full text-dark font-almarai px-5 pt-5">
-							<span class="font-bold text-lg">Nike React Miler</span>
+							<span class="font-bold text-lg dark:text-[#F8F8F8]"
+								>Nike React Miler</span
+							>
 
-							<p class="font-medium text-[#474747] text-sm mt-2">
+							<p
+								class="font-medium text-[#474747] dark:text-[#F8F8F8] text-sm mt-2"
+							>
 								Men’s Road Running Shoes
 							</p>
 
 							<div
-								class="flex items-center font-medium text-[#474747] text-sm mt-2"
+								class="flex items-center font-medium text-[#474747] dark:text-[#F8F8F8] text-sm mt-2"
 							>
 								Colors
 								<div
@@ -103,7 +91,9 @@
 								</div>
 							</div>
 
-							<div class="flex items-center gap-1 mt-2 font-medium text-sm">
+							<div
+								class="flex items-center gap-1 mt-2 font-medium text-sm dark:text-[#F8F8F8]"
+							>
 								<span class="font-bold">4</span>
 								<span class="font-bold">-</span>
 								<p>Sizes available</p>
@@ -118,11 +108,15 @@
 								</div>
 
 								<!--? Off -->
-								<p class="text-off text-sm font-bold">25% off</p>
+								<p class="text-off dark:text-offDark text-sm font-bold">
+									25% off
+								</p>
 							</div>
 
 							<!--? Buy -->
-							<div class="flex items-center justify-between mt-4">
+							<div
+								class="flex items-center justify-between mt-4 dark:text-[#F8F8F8]"
+							>
 								<p class="font-bold text-base">$30</p>
 
 								<div class="flex items-center gap-2">
@@ -141,9 +135,10 @@
 				</div>
 			</div>
 
-			<div class="fixed right-0 w-32 h-fit">
+			<!--? Navigation Bar -->
+			<div class="fixed sm:flex sm:items-center sm:justify-center right-0 sm:bottom-0 sm:mb-5 w-32 sm:w-full h-fit">
 				<div
-					class="mt-12 overflow-hidden bg-white shadow-xl rounded-2xl flex items-center flex-col w-1/2 h-full px-1 pt-10"
+					class="mt-12 overflow-hidden bg-white dark:bg-darkGray shadow-xl rounded-2xl flex items-center sm:justify-center flex-col sm:flex-row sm:gap-6 w-1/2 sm:w-[90%] h-full px-1 sm:px-2 pt-10 sm:pt-0 transition-colors duration-300"
 				>
 					<!--? Wishlist Icon -->
 					<div class="my-2 relative">
@@ -189,7 +184,9 @@
 					<!--? Profile Icon -->
 					<div class="my-6 relative">
 						<!--? Icon -->
-						<div class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
+						<div
+							class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full"
+						>
 							<img class="w-9 h-9 cursor-pointer" src="./images/Avatar.png" />
 						</div>
 					</div>
@@ -197,7 +194,11 @@
 					<!--? Theme Icon -->
 					<div class="my-6 relative">
 						<!--? Icon -->
-						<img class="w-9 h-9 cursor-pointer" src="./icons/Soild/Sun.svg" />
+						<img
+							id="theme"
+							class="w-9 h-9 cursor-pointer"
+							src="./icons/Soild/Sun.svg"
+						/>
 					</div>
 
 					<!--? NavBar Icon -->
