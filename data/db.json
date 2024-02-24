@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Nike React Miler",
+      "description": "Men’s Road Running Shoes",
+      "colors": [
+        "white",
+        "blue",
+        "black"
+      ],
+      "size": 4,
+      "available": true,
+      "price": 29,
+      "off": 25
+    },
+
+    {
+      "id": "2",
+      "title": "Apple Macbook Air",
+      "description": "Apple M1 Chip with 8‑Core CPU and 8‑Core GPU 512GB Storage ",
+      "colors": [
+        "gray",
+        "black",
+        "roseGold"
+      ],
+      "size": 0,
+      "available": true,
+      "price": 499,
+      "off": 0
+    },
+
+    {
+      "id": "3",
+      "title": "Apple Watch Series 7",
+      "description": "Midnight Alumium Case with Sports Band",
+      "colors": [
+        "white",
+        "red",
+        "black"
+      ],
+      "size": 0,
+      "available": true,
+      "price": 299,
+      "off": 0
+    },
+
+    {
+      "id": "4",
+      "title": "Nike Air Force 1",
+      "description": "Men’s Road Running shoes",
+      "colors": [
+        "white",
+        "gray",
+        "black"
+      ],
+      "size": 3,
+      "available": true,
+      "price": 29,
+      "off": 50
+    }
+  ]
+}
