@@ -2,6 +2,7 @@
   "products": [
     {
       "id": "1",
+      "image": "./public/images/nike-react-miler.png",
       "title": "Nike React Miler",
       "description": "Men’s Road Running Shoes",
       "colors": [
@@ -17,6 +18,7 @@
 
     {
       "id": "2",
+      "image": "./public/images/apple-macbook-air.png",
       "title": "Apple Macbook Air",
       "description": "Apple M1 Chip with 8‑Core CPU and 8‑Core GPU 512GB Storage ",
       "colors": [
@@ -32,6 +34,7 @@
 
     {
       "id": "3",
+      "image": "./public/images/apple-watch-series-7.png",
       "title": "Apple Watch Series 7",
       "description": "Midnight Alumium Case with Sports Band",
       "colors": [
@@ -47,6 +50,7 @@
 
     {
       "id": "4",
+      "image": "./public/images/nike-air-force.png",
       "title": "Nike Air Force 1",
       "description": "Men’s Road Running shoes",
       "colors": [
