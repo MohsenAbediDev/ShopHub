@@ -11,15 +11,14 @@
         "black"
       ],
       "size": 4,
-      "available": true,
-      "price": 29,
+      "available": false,
+      "price": 29.99,
       "off": 25
     },
-
     {
       "id": "2",
       "image": "./public/images/apple-macbook-air.png",
-      "title": "Apple Macbook Air",
+      "title": "Macbook Air",
       "description": "Apple M1 Chip with 8‑Core CPU and 8‑Core GPU 512GB Storage ",
       "colors": [
         "gray",
@@ -28,10 +27,9 @@
       ],
       "size": 0,
       "available": true,
-      "price": 499,
+      "price": 499.99,
       "off": 0
     },
-
     {
       "id": "3",
       "image": "./public/images/apple-watch-series-7.png",
@@ -44,10 +42,9 @@
       ],
       "size": 0,
       "available": true,
-      "price": 299,
+      "price": 299.99,
       "off": 0
     },
-
     {
       "id": "4",
       "image": "./public/images/nike-air-force.png",
@@ -60,7 +57,7 @@
       ],
       "size": 3,
       "available": true,
-      "price": 29,
+      "price": 29.99,
       "off": 50
     }
   ]
