@@ -26,7 +26,7 @@
 				</div>
 
 				<!--? Categories -->
-				<div
+				<!-- <div
 					class="flex items-center mt-6 gap-5 sm:flex-wrap w-full h-10 sm:h-auto"
 				>
 					<a href="#" class="category">Best selliing</a>
@@ -35,21 +35,53 @@
 					<a href="#" class="category">Books</a>
 					<a href="#" class="category">Toys</a>
 					<a href="#" class="category">Medicine</a>
-				</div>
+				</div> -->
 
 				<!--? Products Title -->
 				<h1
 					class="mt-6 dark:text-grayText transition-colors duration-300 font-bold text-3xl"
 				>
-					Trending Items
+					Cart
 				</h1>
 
 				<!--? Products Container -->
 				<div
-					class="flex items-center justify-between sm:justify-center sm:flex-col my-6 gap-x-5 sm:gap-x-0 gap-y-10 flex-wrap w-full h-auto"
+					class="flex items-center justify-between sm:justify-center sm:flex-col my-6 gap-x-5 sm:gap-x-0 gap-y-5 flex-wrap w-full h-auto"
 					id="products-container"
 				>
 					<!--? Products -->
+					<div class="w-full flex h-36 rounded-xl bg-white dark:bg-darkGray dark:shadow-none shadow-xl duration-300">
+						<!--? Left Product Box (Image) -->
+						<div class="min-w-[15%] h-full overflow-hidden transition-colors duration-300">
+							<img
+								class="w-full h-full rounded-l-md"
+								src="./public/images/nike-react-miler.png"
+								alt="nike react miller shoes" />
+						</div>
+
+            <!--? Right Product Box -->
+            <div class="flex w-[85%] my-5 mx-5 sm:mx-2 justify-between"> 
+							<div class="max-w-5 flex flex-col text-white">
+								<p class="text-grayText">Name</p>
+								<span class="text-xl">Nike React Miler</span>
+							</div>
+
+							<div class="max-w-5 flex flex-col text-white">
+								<p class="text-grayText">Color</p>
+								<span class="text-xl">Blue</span>
+							</div>
+
+							<div class="max-w-5 flex flex-col text-white">
+								<p class="text-grayText">Price</p>
+								<span class="text-xl">29.99</span>
+							</div>
+							
+							<div class="max-w-5 flex flex-col text-white">
+								<button class="w-14 h-14 bg-red text-white rounded-md">Delete</button>
+							</div>
+            </div>
+					</div> 
+
 				</div>
 			</div>
 
@@ -86,7 +118,7 @@
 					</div>
 
 					<!--? Cart Icon -->
-					<a href="cart.html" class="my-6 relative">
+					<div class="my-6 relative">
 						<!--? Notification -->
 						<span
 							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-blue"
@@ -99,7 +131,7 @@
 							class="mr-2 w-9 h-9 cursor-pointer"
 							src="./public/icons/Soild/Shopping-cart-dark.svg"
 						/>
-					</a>
+					</div>
 
 					<!--? Profile Icon -->
 					<div class="my-6 relative">
@@ -138,6 +170,5 @@
 		</div>
 
 		<script src="src/Js/theme.js"></script>
-		<script src="src/Js/index.js"></script>
 	</body>
 </html>
