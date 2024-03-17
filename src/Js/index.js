@@ -5,7 +5,7 @@ const productsContainer = $.querySelector('#products-container')
 fetch(productApi)
 	.then((res) => res.json())
 	.then((data) => showProducts(data))
-	.catch((error) => console.log(error))
+	.catch((error) => errorFetchDatas())
 
 function showProducts(datas) {
 	datas.forEach((data) => {
@@ -115,4 +115,10 @@ function showProducts(datas) {
     `
 		)
 	})
+}
+
+function errorFetchDatas() {
+  const errorElem = $.querySelector('.errorFetch')
+
+  errorElem.classList.remove('hidden')
 }
