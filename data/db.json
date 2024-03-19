@@ -12,7 +12,7 @@
       ],
       "size": 4,
       "available": false,
-      "price": 29.99,
+      "price": 24.99,
       "off": 25
     },
     {
@@ -57,7 +57,7 @@
       ],
       "size": 3,
       "available": true,
-      "price": 29.99,
+      "price": 14.99,
       "off": 50
     }
   ]

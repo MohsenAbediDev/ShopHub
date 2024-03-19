@@ -1,11 +1,15 @@
-//? Variable $ = document
+//? $ = document
+
 const productApi = 'http://localhost:3000/products'
+const products = []
+
 const productsContainer = $.querySelector('#products-container')
+const cartCount = $.querySelector('#cartCount')
 
 fetch(productApi)
 	.then((res) => res.json())
 	.then((data) => showProducts(data))
-	.catch((error) => errorFetchDatas())
+	.catch(() => errorFetchDatas())
 
 function showProducts(datas) {
 	datas.forEach((data) => {
@@ -20,6 +24,8 @@ function showProducts(datas) {
 			price,
 			off,
 		} = data
+
+		products.push(data)
 
 		productsContainer.insertAdjacentHTML(
 			'beforeend',
@@ -52,7 +58,7 @@ function showProducts(datas) {
                       <!--? Select Colors Box -->
                       ${colors
 												.map(
-													(color) => 
+													(color) =>
 														`<span class="w-4 h-4 rounded-full bg-${color} cursor-pointer"></span>`
 												)
 												.join('')} 
@@ -102,7 +108,8 @@ function showProducts(datas) {
           <div class="flex items-center gap-2">
             <img
               src="./public/icons/Outline/shopping-cart.svg"
-              class="w-5 h-5 cursor-pointer"
+              class="w-5 h-5 addToCart cursor-pointer"
+              id=${data.id}
             />
             <img
               src="./public/icons/Outline/heart.svg"
@@ -117,8 +124,51 @@ function showProducts(datas) {
 	})
 }
 
+// Show Error
 function errorFetchDatas() {
-  const errorElem = $.querySelector('.errorFetch')
+	$.querySelector('.errorFetch').classList.remove('hidden')
+}
 
-  errorElem.classList.remove('hidden')
+// Load Cart Element
+window.addEventListener('load', () => {
+	const addToCartElems = $.querySelectorAll('.addToCart')
+
+	addToCartElems.forEach((cartElem) =>
+		cartElem.addEventListener('click', addToCart)
+	)
+
+	changeProduductsCount()
+})
+
+// Add Product To Cart
+function addToCart(e) {
+	const productId = e.target.id
+	const filteredData = products.filter((product) => product.id == productId)
+
+	// Retrieve the existing items from localStorage
+	const existingItemsString = localStorage.getItem('products')
+	let existingItems = []
+
+	// Parse the existing items from string to array
+	if (existingItemsString) {
+		existingItems = JSON.parse(existingItemsString)
+	}
+
+	// Check if the product already exists in the cart
+	const isProductInCart = existingItems.some((item) => item.id === productId)
+
+	// If the product is not already in the cart, add it
+	if (!isProductInCart) {
+		existingItems.push(filteredData[0]) // Assuming filteredData contains only one item
+		localStorage.setItem('products', JSON.stringify(existingItems))
+	}
+
+	changeProduductsCount()
+}
+
+// Change Products Count in Cart
+function changeProduductsCount() {
+	const productsCount = JSON.parse(localStorage.getItem('products')).length
+
+	cartCount.innerHTML = productsCount
 }
