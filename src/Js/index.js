@@ -106,12 +106,18 @@ function showProducts(datas) {
           <p class="font-bold text-base">$${price}</p>
     
           <div class="flex items-center gap-2">
-						<div class="bg-gray flex items-center gap-2 rounded-full hidden">
-							<span id="product-${data.id}-minus" class="h-full w-4 rounded-l-full bg-white text-black select-none text-center text-xl cursor-pointer">-</span>
+						<div id="product-${
+							data.id
+						}-box" class="bg-gray flex items-center gap-2 rounded-full hidden">
+							<span id="product-${
+								data.id
+							}-minus" class="h-full w-4 rounded-l-full bg-white text-black select-none text-center text-xl cursor-pointer">-</span>
 							
 							<span id="product-${data.id}-count">1</span> 
 							
-							<span id="product-${data.id}-plus" class="h-full w-4 rounded-r-full bg-white text-black select-none text-center text-lg cursor-pointer">+</span>
+							<span id="product-${
+								data.id
+							}-plus" class="h-full w-4 rounded-r-full bg-white text-black select-none text-center text-lg cursor-pointer">+</span>
 						</div>
 						<img
               src="./public/icons/Outline/shopping-cart.svg"
@@ -144,13 +150,18 @@ window.addEventListener('load', () => {
 		cartElem.addEventListener('click', addToCart)
 	)
 
-	changeProduductsCount()
+	numberProduductsCount()
 })
 
 // Add Product To Cart
 function addToCart(e) {
 	const productId = e.target.id
+	const productCartElem = e.target
+	const productBoxElem = $.querySelector(`#product-${productId}-box`)
 	const filteredData = products.filter((product) => product.id == productId)
+
+	productCartElem.classList.add('hidden')
+	productBoxElem.classList.remove('hidden')
 
 	// Retrieve the existing items from localStorage
 	const existingItemsString = localStorage.getItem('products')
@@ -170,11 +181,40 @@ function addToCart(e) {
 		localStorage.setItem('products', JSON.stringify(existingItems))
 	}
 
-	changeProduductsCount()
+	numberProduductsCount()
+	changeProductCount(productId, productCartElem, productBoxElem)
 }
 
-// Change Products Count in Cart
-function changeProduductsCount() {
+// Change product count in product cart
+function changeProductCount(productId, productCartElem, productBoxElem) {
+	const minusCount = $.querySelector(`#product-${productId}-minus`)
+	const productCount = $.querySelector(`#product-${productId}-count`)
+	const plusCount = $.querySelector(`#product-${productId}-plus`)
+
+	let number = 1
+
+	productCount.innerHTML = number
+
+	plusCount.addEventListener('click', () => {
+		number++
+
+		productCount.innerHTML = number
+	})
+
+	minusCount.addEventListener('click', () => {
+		number--
+
+		productCount.innerHTML = number
+
+		if (number == 0) {
+			productCartElem.classList.remove('hidden')
+			productBoxElem.classList.add('hidden')
+		}
+	})
+}
+
+// Change the number of products in the shopping cart
+function numberProduductsCount() {
 	const productsCount = JSON.parse(localStorage.getItem('products')).length
 
 	cartCount.innerHTML = productsCount
