@@ -106,7 +106,14 @@ function showProducts(datas) {
           <p class="font-bold text-base">$${price}</p>
     
           <div class="flex items-center gap-2">
-            <img
+						<div class="bg-gray flex items-center gap-2 rounded-full hidden">
+							<span id="product-${data.id}-minus" class="h-full w-4 rounded-l-full bg-white text-black select-none text-center text-xl cursor-pointer">-</span>
+							
+							<span id="product-${data.id}-count">1</span> 
+							
+							<span id="product-${data.id}-plus" class="h-full w-4 rounded-r-full bg-white text-black select-none text-center text-lg cursor-pointer">+</span>
+						</div>
+						<img
               src="./public/icons/Outline/shopping-cart.svg"
               class="w-5 h-5 addToCart cursor-pointer"
               id=${data.id}
