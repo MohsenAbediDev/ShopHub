@@ -111,13 +111,13 @@ function showProducts(datas) {
 						}-box" class="bg-gray flex items-center gap-2 rounded-full hidden">
 							<span id="product-${
 								data.id
-							}-minus" class="h-full w-4 rounded-l-full bg-white text-black select-none text-center text-xl cursor-pointer">-</span>
+							}-minus" class="h-full w-4 flex items-center justify-center rounded-l-full bg-white text-black select-none text-center text-xl cursor-pointer">-</span>
 							
 							<span id="product-${data.id}-count">1</span> 
 							
 							<span id="product-${
 								data.id
-							}-plus" class="h-full w-4 rounded-r-full bg-white text-black select-none text-center text-lg cursor-pointer">+</span>
+							}-plus" class="h-full w-4 flex items-center justify-center rounded-r-full bg-white text-black select-none text-center text-lg cursor-pointer">+</span>
 						</div>
 						<img
               src="./public/icons/Outline/shopping-cart.svg"
@@ -185,7 +185,7 @@ function addToCart(e) {
 	changeProductCount(productId, productCartElem, productBoxElem)
 }
 
-// Change product count in product cart
+// Change product count in product box
 function changeProductCount(productId, productCartElem, productBoxElem) {
 	const minusCount = $.querySelector(`#product-${productId}-minus`)
 	const productCount = $.querySelector(`#product-${productId}-count`)
