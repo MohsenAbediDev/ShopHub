@@ -5,6 +5,7 @@ const cartProducts = JSON.parse(localStorage.getItem('products'))
 const productsContainer = $.querySelector('#products-container')
 const cartCount = $.querySelector('#cartCount')
 
+// Show Products in Cart
 function showProducts(datas) {
 	datas.forEach((data) => {
 		const {
@@ -83,6 +84,8 @@ function showProducts(datas) {
       `
 		)
 	})
+
+	emptyCart()
 }
 
 // Show Error
@@ -107,6 +110,16 @@ function deleteProduct(deleteElem) {
 
 	// Show the updated list of products
 	showProducts(filteredProducts)
+	emptyCart()
+}
+
+// Show Emty Cart Picture
+function emptyCart() {
+	if (cartProducts.length == []) {
+		$.querySelector('.emptyCart').classList.remove('hidden')
+	} else {
+		$.querySelector('.emptyCart').classList.add('hidden')
+	}
 }
 
 window.addEventListener('load', () => {
