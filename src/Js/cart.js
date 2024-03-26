@@ -74,7 +74,7 @@ function showProducts(datas) {
               </div>
 
               <div class="max-w-5 flex flex-col dark:text-white">
-                <button class="w-14 h-14 bg-red dark:text-white rounded-md">
+                <button id=${id} class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md">
                   Delete
                 </button>
               </div>
@@ -90,4 +90,33 @@ function errorFetchDatas() {
 	$.querySelector('.errorFetch').classList.remove('hidden')
 }
 
-window.addEventListener('load', showProducts(cartProducts))
+// Delete Product
+function deleteProduct(deleteElem) {
+	const productIdElem = deleteElem.id
+
+	const filteredProducts = cartProducts.filter(
+		(product) => product.id != productIdElem
+	)
+
+	localStorage.setItem('products', JSON.stringify(filteredProducts))
+
+	console.log(filteredProducts)
+
+	// Clear the current products container
+	productsContainer.innerHTML = ''
+
+	// Show the updated list of products
+	showProducts(filteredProducts)
+}
+
+window.addEventListener('load', () => {
+	showProducts(cartProducts)
+
+	const deleteElems = $.querySelectorAll('.deleteProduct')
+
+	deleteElems.forEach((deleteElem) => {
+		deleteElem.addEventListener('click', () => {
+			deleteProduct(deleteElem)
+		})
+	})
+})
