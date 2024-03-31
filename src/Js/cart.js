@@ -86,6 +86,7 @@ function showProducts(datas) {
 		)
 	})
 
+  // Check if cart is empty
 	emptyCart()
 }
 
@@ -107,22 +108,25 @@ function deleteProduct(productIdElem) {
 	// Update local storage
 	localStorage.setItem('products', JSON.stringify(filteredProducts))
 
-	// Check if cart is empty
-	emptyCart()
-
 	// Update Show Products
 	productsContainer.innerHTML = ''
-
 	showProducts(filteredProducts)
+
+  // Check if cart is empty
+	emptyCart()
 }
 
-// Show Emty Cart Picture
+// Show Empty Cart Picture
 function emptyCart() {
-	if (cartProducts.length == []) {
-		$.querySelector('.emptyCart').classList.remove('hidden')
-	} else {
-		$.querySelector('.emptyCart').classList.add('hidden')
-	}
+  // Get Products
+  const cartProducts = JSON.parse(localStorage.getItem('products'))
+
+  if (cartProducts.length == 0) {
+    emptyCartElem.classList.remove('hidden')
+  } else {
+    !emptyCartElem.classList.value.includes('hidden') &&
+      emptyCartElem.classList.add('hidden')
+  }
 }
 
 window.addEventListener('load', () => {
