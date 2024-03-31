@@ -4,6 +4,7 @@ const cartProducts = JSON.parse(localStorage.getItem('products'))
 
 const productsContainer = $.querySelector('#products-container')
 const cartCount = $.querySelector('#cartCount')
+const emptyCartElem = $.querySelector('.emptyCart')
 
 // Show Products in Cart
 function showProducts(datas) {
@@ -75,7 +76,7 @@ function showProducts(datas) {
               </div>
 
               <div class="max-w-5 flex flex-col dark:text-white">
-                <button id=${id} class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md">
+                <button class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md" onclick="deleteProduct(${id})">
                   Delete
                 </button>
               </div>
@@ -93,24 +94,26 @@ function errorFetchDatas() {
 	$.querySelector('.errorFetch').classList.remove('hidden')
 }
 
-// Delete Product
-function deleteProduct(deleteElem) {
-	const productIdElem = deleteElem.id
+// Delete Product from cart
+function deleteProduct(productIdElem) {
+  // Get Products
+  const cartProducts = JSON.parse(localStorage.getItem('products'))
 
+	// Filter out the product to delete
 	const filteredProducts = cartProducts.filter(
 		(product) => product.id != productIdElem
 	)
 
+	// Update local storage
 	localStorage.setItem('products', JSON.stringify(filteredProducts))
 
-	console.log(filteredProducts)
+	// Check if cart is empty
+	emptyCart()
 
-	// Clear the current products container
+	// Update Show Products
 	productsContainer.innerHTML = ''
 
-	// Show the updated list of products
 	showProducts(filteredProducts)
-	emptyCart()
 }
 
 // Show Emty Cart Picture
@@ -124,12 +127,4 @@ function emptyCart() {
 
 window.addEventListener('load', () => {
 	showProducts(cartProducts)
-
-	const deleteElems = $.querySelectorAll('.deleteProduct')
-
-	deleteElems.forEach((deleteElem) => {
-		deleteElem.addEventListener('click', () => {
-			deleteProduct(deleteElem)
-		})
-	})
 })
