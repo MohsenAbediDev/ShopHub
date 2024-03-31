@@ -185,30 +185,61 @@ function addToCart(e) {
 	changeProductCount(productId, productCartElem, productBoxElem)
 }
 
-// Change product count in product box
+// This function is used to change the count of a product in the product box.
 function changeProductCount(productId, productCartElem, productBoxElem) {
+	// Select the elements for increasing and decreasing the product count
 	const minusCount = $.querySelector(`#product-${productId}-minus`)
-	const productCount = $.querySelector(`#product-${productId}-count`)
+	const productCountElem = $.querySelector(`#product-${productId}-count`)
 	const plusCount = $.querySelector(`#product-${productId}-plus`)
 
-	let number = 1
+	// Initialize the productsCount object to hold the product id and count
+	const productsCount = {
+		id: Number(productId),
+		count: 1,
+	}
 
-	productCount.innerHTML = number
+	// Update the product count display and store it in local storage
+	productCountElem.innerHTML = productsCount.count
 
+	localStorage.setItem(
+		`product-${productId}-count`,
+		JSON.stringify(productsCount)
+	)
+
+	// Add event listener for increasing the product count
 	plusCount.addEventListener('click', () => {
-		number++
+		productsCount.count++
 
-		productCount.innerHTML = number
+		// Update local storage with the new count
+		localStorage.setItem(
+			`product-${productId}-count`,
+			JSON.stringify(productsCount)
+		)
+
+		// Update the product count display
+		productCountElem.innerHTML = productsCount.count
 	})
 
+	// Add event listener for decreasing the product count
 	minusCount.addEventListener('click', () => {
-		number--
+		productsCount.count--
 
-		productCount.innerHTML = number
+		// Update the product count display
+		productCountElem.innerHTML = productsCount.count
 
-		if (number == 0) {
+		// Update local storage with the new count
+		localStorage.setItem(
+			`product-${productId}-count`,
+			JSON.stringify(productsCount)
+		)
+
+		// If the count reaches zero, hide the product box and show the cart icon
+		if (productsCount.count == 0) {
 			productCartElem.classList.remove('hidden')
 			productBoxElem.classList.add('hidden')
+
+			// Remove the count from local storage
+			localStorage.removeItem(`product-${productId}-count`)
 		}
 	})
 }
