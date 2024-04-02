@@ -2,6 +2,7 @@
 
 const productApi = 'http://localhost:3000/products'
 const products = []
+const productsCountArray = []
 
 const productsContainer = $.querySelector('#products-container')
 const cartCount = $.querySelector('#cartCount')
@@ -201,20 +202,16 @@ function changeProductCount(productId, productCartElem, productBoxElem) {
 	// Update the product count display and store it in local storage
 	productCountElem.innerHTML = productsCount.count
 
-	localStorage.setItem(
-		`product-${productId}-count`,
-		JSON.stringify(productsCount)
-	)
+	productsCountArray.push(productsCount)
+
+	localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
 
 	// Add event listener for increasing the product count
 	plusCount.addEventListener('click', () => {
 		productsCount.count++
 
 		// Update local storage with the new count
-		localStorage.setItem(
-			`product-${productId}-count`,
-			JSON.stringify(productsCount)
-		)
+		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
 
 		// Update the product count display
 		productCountElem.innerHTML = productsCount.count
@@ -228,18 +225,25 @@ function changeProductCount(productId, productCartElem, productBoxElem) {
 		productCountElem.innerHTML = productsCount.count
 
 		// Update local storage with the new count
-		localStorage.setItem(
-			`product-${productId}-count`,
-			JSON.stringify(productsCount)
-		)
+		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
 
 		// If the count reaches zero, hide the product box and show the cart icon
 		if (productsCount.count == 0) {
+			const productsCount = JSON.parse(localStorage.getItem(`products-count`))
+
 			productCartElem.classList.remove('hidden')
 			productBoxElem.classList.add('hidden')
 
-			// Remove the count from local storage
-			localStorage.removeItem(`product-${productId}-count`)
+			// Find index of the product with count 0
+			const indexToRemove = productsCount.findIndex((e) => e.count == 0)
+
+			// Remove the product from the array if found
+			if (indexToRemove !== -1) {
+				productsCountArray.splice(indexToRemove, 1)
+			}
+
+			// Update localStorage with the modified array
+			localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
 		}
 	})
 }
