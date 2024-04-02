@@ -227,10 +227,12 @@ function changeProductCount(productId, productCartElem, productBoxElem) {
 		// Update local storage with the new count
 		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
 
-		// If the count reaches zero, hide the product box and show the cart icon
+		// If the count reaches zero, remove product from local storage
 		if (productsCount.count == 0) {
 			const productsCount = JSON.parse(localStorage.getItem(`products-count`))
+			const products = JSON.parse(localStorage.getItem('products'))
 
+			// hide the product box and show the cart icon
 			productCartElem.classList.remove('hidden')
 			productBoxElem.classList.add('hidden')
 
@@ -240,10 +242,12 @@ function changeProductCount(productId, productCartElem, productBoxElem) {
 			// Remove the product from the array if found
 			if (indexToRemove !== -1) {
 				productsCountArray.splice(indexToRemove, 1)
+				products.splice(indexToRemove, 1)
 			}
 
 			// Update localStorage with the modified array
 			localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
+			localStorage.setItem(`products`, JSON.stringify(products))
 		}
 	})
 }
