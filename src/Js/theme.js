@@ -4,6 +4,7 @@ const html = $.querySelector('.html')
 const themeIcon = $.querySelector('#theme')
 const cartIcon = $.querySelector('#cartIcon')
 const caretIcon = $.querySelector('#caretIcon')
+const homeIcon = $.querySelector('#homeIcon')
 
 let isDarkTheme = false
 
@@ -16,6 +17,8 @@ function toggleTheme() {
 
 // Function to apply the theme based on the local storage value
 function changeTheme() {
+	const isHomePage = location.pathname.includes('index') || location.pathname == '/'
+
 	// Use JSON.parse to convert the stored value to a boolean
 	isDarkTheme = JSON.parse(localStorage.getItem('theme'))
 	// Check the actual value and update classList
@@ -25,10 +28,18 @@ function changeTheme() {
 	isDarkTheme
 		? themeIcon.setAttribute('src', './public/icons/Soild/moon.svg')
 		: themeIcon.setAttribute('src', './public/icons/Soild/sun.svg')
-	
-		isDarkTheme
-		? cartIcon.setAttribute('src', './public/icons/Soild/shopping-cart-light.svg')
-		: cartIcon.setAttribute('src', './public/icons/Soild/shopping-cart-dark.svg')
+
+		if(isHomePage) {
+			isDarkTheme
+			? cartIcon.setAttribute('src', './public/icons/Soild/shopping-cart-light.svg')
+			: cartIcon.setAttribute('src', './public/icons/Soild/shopping-cart-dark.svg')
+		}
+
+		if(!isHomePage) {
+			isDarkTheme
+			? homeIcon.setAttribute('src', './public/icons/Soild/home-light.svg')
+			: homeIcon.setAttribute('src', './public/icons/Soild/home-dark.svg')
+		}
 		
 		isDarkTheme
 		? caretIcon.setAttribute('src', './public/icons/Soild/Caret-left-light.svg')
