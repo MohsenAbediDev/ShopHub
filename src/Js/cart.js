@@ -24,65 +24,120 @@ function showProducts(datas) {
 			'beforeend',
 			`
       <div
-            class="w-full flex h-36 rounded-xl bg-white dark:bg-darkGray dark:shadow-none shadow-xl duration-300"
-          >
-            <!--? Left Product Box (Image) -->
-            <div
-              class="min-w-[15%] h-full overflow-hidden transition-colors duration-300"
-            >
-              <img
-                class="w-full h-full rounded-l-md"
-                src=${image}
-                alt="nike react miller shoes"
-              />
-            </div>
+						class="w-full h-36 sm:h-96 flex sm:flex-col rounded-xl bg-white dark:bg-darkGray dark:shadow-none shadow-xl duration-300"
+					>
+						<!--? Left Product Box (Image) -->
+						<div
+							class="min-w-[15%] h-full sm:min-w-full  overflow-hidden transition-colors duration-300"
+						>
+							<img
+								class="w-full h-full rounded-l-md object-cover object-center"
+								src=${image}
+								alt=${title}
+							/>
+						</div>
 
-            <!--? Right Product Box -->
-            <div class="flex w-[85%] my-5 mx-5 sm:mx-2 justify-between">
-              <div class="max-w-5 flex flex-col dark:text-white">
-                <p class="dark:text-grayText">Name</p>
-                <span class="text-xl dark:text-white">${title}</span>
-              </div>
+						<!--? Right Product Box -->
+						<div
+							class="flex sm:flex-col sm:gap-y-4 w-[85%] my-5 mx-5 sm:mx- justify-between"
+						>
+							<div
+								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 dark:text-white"
+							>
+								<p class="dark:text-grayText">Name</p>
+								<span class="text-xl dark:text-white">${title}</span>
+							</div>
 
-              <div class="max-w-5 flex flex-col text-white">
-                <p class="dark:text-grayText">Color</p>
-                <span class="text-xl">${colors}</span>
-              </div>
+							<div
+								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+							>
+								<p class="dark:text-grayText">Color</p>
+								<span class="text-xl">${colors}</span>
+							</div>
 
-              <div class="max-w-5 flex flex-col text-white">
-                <p class="dark:text-grayText">Price</p>
-                <span class="text-xl">${price}</span>
-              </div>
+							<div
+								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+							>
+								<p class="dark:text-grayText">Price</p>
+								<span class="text-xl">${price}</span>
+							</div>
 
-              <div class="max-w-5 flex flex-col text-white">
-                <p class="dark:text-grayText">Count</p>
+							<div
+								class="max-w-5 sm:hidden flex flex-col sm:flex-row sm:gap-5 text-white"
+							>
+								<p class="dark:text-grayText">Count</p>
 
-                <div class="bg-gray h-6 flex items-center gap-2 rounded-full">
-                  <span id="product-${data.id}-minus"
-                    class="countChanger h-full flex items-center justify-center w-4 rounded-l-full bg-white text-black select-none text-xl cursor-pointer"
-                  >
-                    -
-                  </span>
+								<div class="bg-gray h-6 flex items-center gap-2 rounded-full">
+									<span
+										id="product-${data.id}-minus"
+										class="countChanger h-full flex items-center justify-center w-4 rounded-l-full bg-white text-black select-none text-xl cursor-pointer"
+									>
+										-
+									</span>
 
-                  <span id="product-${data.id}-count">1</span>
+									<span id="product-${data.id}-count">1</span>
 
-                  <span id="product-${data.id}-plus"
-                    class="countChanger h-full flex items-center justify-center w-4 rounded-r-full bg-white text-black select-none text-lg cursor-pointer"
-                  >
-                    +
-                  </span>
-                </div>
-              </div>
+									<span
+										id="product-${data.id}-plus"
+										class="countChanger h-full flex items-center justify-center w-4 rounded-r-full bg-white text-black select-none text-lg cursor-pointer"
+									>
+										+
+									</span>
+								</div>
+							</div>
 
-              <div class="max-w-5 flex flex-col dark:text-white">
-                <button class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md" onclick="deleteProduct(${id})">
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
+							<div class="max-w-5 sm:hidden flex flex-col dark:text-white">
+								<button
+									class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md"
+									onclick="deleteProduct(${id})"
+								>
+									Delete
+								</button>
+							</div>
+
+							<div
+								class="hidden sm:w-full sm:flex sm:items-center sm:justify-between"
+							>
+								<div
+									class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+								>
+									<p class="dark:text-grayText">Count</p>
+
+									<div class="bg-gray h-6 flex items-center gap-2 rounded-full">
+										<span
+											id="product-${data.id}-minus"
+											class="countChanger h-full flex items-center justify-center w-4 rounded-l-full bg-white text-black select-none text-xl cursor-pointer"
+										>
+											-
+										</span>
+
+										<span id="product-${data.id}-count">1</span>
+
+										<span
+											id="product-${data.id}-plus"
+											class="countChanger h-full flex items-center justify-center w-4 rounded-r-full bg-white text-black select-none text-lg cursor-pointer"
+										>
+											+
+										</span>
+									</div>
+								</div>
+
+								<div class="max-w-5 flex flex-col dark:text-white">
+									<button
+										class="deleteProduct w-14 h-10 bg-red dark:text-white rounded-md"
+										onclick="deleteProduct(${id})"
+									>
+										Delete
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
       `
 		)
+		
+		// Check if cart is have products and show product counts
+		showProductsCount(id)
 	})
 
 	// Check if cart is empty
@@ -181,6 +236,7 @@ function changeProductCount(countChanger) {
 			// Update Show Products
 			productsContainer.innerHTML = ''
 			showProducts(products)
+			emptyCart()
 		}
 	}
 
@@ -189,6 +245,15 @@ function changeProductCount(countChanger) {
 
 	// Update the products count in local storage
 	localStorage.setItem('products-count', JSON.stringify(productsCount))
+}
+
+// Show products count when start web page
+function showProductsCount(id) {
+	// Get all products count from local storage
+	const productsCount = JSON.parse(localStorage.getItem('products-count'))
+	
+	// Get available product count element 
+	const countElem = document.querySelector(`#product-${id}-count`)
 }
 
 window.addEventListener('load', () => {
