@@ -77,3 +77,9 @@ const closeNavigationMobile = () => {
 }
 
 navBtn.addEventListener('click', toggleNavigation)
+
+window.addEventListener('resize', () => {
+	isNavOpen = false
+	navigation.style.cssText = ''
+	navContainer.style.cssText = ''
+})
