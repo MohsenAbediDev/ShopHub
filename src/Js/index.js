@@ -1,4 +1,4 @@
-//? $ = document
+const $ = document
 
 const productApi = 'http://localhost:3000/products'
 const products = []

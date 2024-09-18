@@ -7,8 +7,7 @@
 		<title>Shop Hub</title>
 	</head>
 	<body
-		class="bg-white dark:bg-dark transition-colors duration-300 font-almarai h-full"
-	>
+		class="bg-white dark:bg-dark transition-colors duration-300 font-almarai h-full">
 		<div class="container h-full flex justify-between mt-10">
 			<div class="left flex flex-col w-[850px] sm:w-full h-full">
 				<!--? Search -->
@@ -16,35 +15,29 @@
 					<input
 						class="dark:bg-darkGray transition-colors duration-300 shadow-md dark:shadow-none border border-stroke rounded-xl font-almarai w-full h-10 px-4 outline-none placeholder:font-light text-[#949494]"
 						type="text"
-						placeholder="Search"
-					/>
+						placeholder="Search" />
 					<!--? Input icon -->
 					<img
 						src="./public/icons/Soild/setting.png"
-						class="absolute w-4 h-4 bottom-2.5 right-4"
-					/>
+						class="absolute w-4 h-4 bottom-2.5 right-4" />
 				</div>
 
 				<!--? Products Title -->
 				<h1
-					class="mt-6 dark:text-grayText transition-colors duration-300 font-bold text-3xl"
-				>
+					class="mt-6 dark:text-grayText transition-colors duration-300 font-bold text-3xl">
 					Cart
 				</h1>
 
 				<!--? Products Container -->
 				<div
 					class="flex items-center justify-between sm:justify-center sm:flex-col my-6 gap-x-5 sm:gap-x-0 gap-y-5 flex-wrap w-full h-auto"
-					id="products-container"
-				>
+					id="products-container">
 					<!--? Messages -->
 					<img
 						src="./public/images/empty_cart.png"
-						class="hidden emptyCart mt-10"
-					/>
+						class="hidden emptyCart mt-10" />
 					<h1
-						class="hidden errorFetch mt-10 text-red transition-colors duration-300 font-bold text-3xl text-center"
-					>
+						class="hidden errorFetch mt-10 text-red transition-colors duration-300 font-bold text-3xl text-center">
 						Cannot Fetch Data :(
 					</h1>
 
@@ -55,24 +48,22 @@
 			<!--? Navigation Bar -->
 			<div
 				class="fixed sm:flex sm:items-center sm:justify-center right-0 sm:bottom-0 sm:mb-5 w-32 sm:w-full h-fit"
-			>
+				id="navigation-container">
 				<div
 					class="mt-12 overflow-hidden bg-white dark:bg-darkGray shadow-xl rounded-2xl flex items-center sm:justify-center flex-col sm:flex-row sm:gap-6 w-1/2 sm:w-[90%] h-full px-1 sm:px-2 pt-10 sm:pt-0 transition-colors duration-300"
-				>
+					id="navigation">
 					<!--? Wishlist Icon -->
 					<div class="my-2 relative">
 						<!--? Notification -->
 						<span
-							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-red"
-						>
+							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-red">
 							2
 						</span>
 
 						<!--? Icon -->
 						<img
 							class="mr-2 w-9 h-9 cursor-pointer"
-							src="./public/icons/Soild/Heart.svg"
-						/>
+							src="./public/icons/Soild/Heart.svg" />
 					</div>
 
 					<!--? Wallet Icon -->
@@ -80,8 +71,7 @@
 						<!--? Icon -->
 						<img
 							class="w-9 h-9 cursor-pointer"
-							src="./public/icons/Soild/Wallet.svg"
-						/>
+							src="./public/icons/Soild/Wallet.svg" />
 					</div>
 
 					<!--? Cart Icon -->
@@ -90,20 +80,17 @@
 						<img
 							class="w-9 h-9 cursor-pointer"
 							id="homeIcon"
-							src="./public/icons/Soild/home-light.svg"
-						/>
+							src="./public/icons/Soild/home-light.svg" />
 					</a>
 
 					<!--? Profile Icon -->
 					<div class="my-6 relative">
 						<!--? Icon -->
 						<div
-							class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full"
-						>
+							class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
 							<img
 								class="w-9 h-9 cursor-pointer"
-								src="./public/images/Avatar.png"
-							/>
+								src="./public/images/Avatar.png" />
 						</div>
 					</div>
 
@@ -113,8 +100,7 @@
 						<img
 							id="theme"
 							class="w-9 h-9 cursor-pointer"
-							src="./public/icons/Soild/Sun.svg"
-						/>
+							src="./public/icons/Soild/Sun.svg" />
 					</div>
 
 					<!--? Caret Icon -->
@@ -123,15 +109,15 @@
 							<img
 								class="mr-2 w-9 h-9 cursor-pointer"
 								id="caretIcon"
-								src="./public/icons/Soild/Caret-left.svg"
-							/>
+								src="./public/icons/Soild/Caret-left.svg" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<script src="src/Js/theme.js"></script>
-		<script src="src/Js/cart.js"></script>
+		<script src="src/Js/navigation.js" type="module"></script>
+		<script src="src/Js/theme.js" type="module"></script>
+		<script src="src/Js/cart.js" type="module"></script>
 	</body>
 </html>
