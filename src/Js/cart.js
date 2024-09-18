@@ -1,4 +1,4 @@
-//? $ = document
+const $ = document
 
 const cartProducts = JSON.parse(localStorage.getItem('products'))
 
