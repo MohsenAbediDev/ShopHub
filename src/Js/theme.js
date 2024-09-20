@@ -11,7 +11,7 @@ let isDarkTheme = false
 // Function to toggle the theme
 function toggleTheme() {
 	isDarkTheme = !isDarkTheme
-	localStorage.setItem('theme', isDarkTheme)
+	localStorage.setItem('isDarkTheme', isDarkTheme)
 	changeTheme()
 }
 
@@ -20,7 +20,7 @@ function changeTheme() {
 	const isHomePage = location.pathname.includes('index') || location.pathname == '/'
 
 	// Use JSON.parse to convert the stored value to a boolean
-	isDarkTheme = JSON.parse(localStorage.getItem('theme'))
+	isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
 	// Check the actual value and update classList
 	isDarkTheme ? html.classList.add('dark') : html.classList.remove('dark')
 	
