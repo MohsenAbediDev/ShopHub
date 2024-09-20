@@ -135,7 +135,7 @@ function showProducts(datas) {
 					</div>
       `
 		)
-		
+
 		// Check if cart is have products and show product counts
 		showProductsCount(id)
 	})
@@ -247,13 +247,22 @@ function changeProductCount(countChanger) {
 	localStorage.setItem('products-count', JSON.stringify(productsCount))
 }
 
-// Show products count when start web page
-function showProductsCount(id) {
-	// Get all products count from local storage
+// Function to display the count of a specific product based on its ID
+function showProductsCount(productsId) {
+	// Retrieve the list of product counts from localStorage and parse it as a JavaScript object
 	const productsCount = JSON.parse(localStorage.getItem('products-count'))
-	
-	// Get available product count element 
-	const countElem = document.querySelector(`#product-${id}-count`)
+
+	// Find the product in the array whose id matches the provided productsId
+	const productCount = productsCount.filter((p) => p.id == productsId)[0]
+
+	// Select the HTML element that displays the product count using the product's ID
+	const productElem = document.querySelector(`#product-${productsId}-count`)
+
+	// If the product's ID from localStorage matches the ID extracted from the HTML element
+	if (productCount.id == productElem.id.match(/\d+/)[0]) {
+		// Update the innerHTML of the product element to show the product count
+		productElem.innerHTML = productCount.count
+	}
 }
 
 window.addEventListener('load', () => {
