@@ -1,11 +1,9 @@
-const $ = document
-
 const productApi = 'http://localhost:3000/products'
 const products = []
 const productsCountArray = []
 
-const productsContainer = $.querySelector('#products-container')
-const cartCount = $.querySelector('#cartCount')
+const productsContainer = document.querySelector('#products-container')
+const cartCount = document.querySelector('#cartCount')
 
 fetch(productApi)
 	.then((res) => res.json())
@@ -145,7 +143,7 @@ function errorFetchDatas() {
 
 // Load Cart Element
 window.addEventListener('load', () => {
-	const addToCartElems = $.querySelectorAll('.addToCart')
+	const addToCartElems = document.querySelectorAll('.addToCart')
 
 	addToCartElems.forEach((cartElem) =>
 		cartElem.addEventListener('click', addToCart)

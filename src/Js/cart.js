@@ -1,9 +1,7 @@
-const $ = document
-
 const cartProducts = JSON.parse(localStorage.getItem('products'))
 
-const productsContainer = $.querySelector('#products-container')
-const emptyCartElem = $.querySelector('.emptyCart')
+const productsContainer = document.querySelector('#products-container')
+const emptyCartElem = document.querySelector('.emptyCart')
 
 // Show Products in Cart
 function showProducts(datas) {
@@ -105,16 +103,16 @@ function showProducts(datas) {
 
 									<div class="bg-gray h-6 flex items-center gap-2 rounded-full">
 										<span
-											id="product-${data.id}-minus"
+											id="product-${id}-minus"
 											class="countChanger h-full flex items-center justify-center w-4 rounded-l-full bg-white text-black select-none text-xl cursor-pointer"
 										>
 											-
 										</span>
 
-										<span id="product-${data.id}-count">1</span>
+										<span id="product-${id}-count">1</span>
 
 										<span
-											id="product-${data.id}-plus"
+											id="product-${id}-plus"
 											class="countChanger h-full flex items-center justify-center w-4 rounded-r-full bg-white text-black select-none text-lg cursor-pointer"
 										>
 											+

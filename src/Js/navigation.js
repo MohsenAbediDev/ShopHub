@@ -1,10 +1,8 @@
-const $ = document
-
-const navBtn = $.querySelector('#nav')
-const navContainer = $.querySelector('#navigation-container')
-const navigation = $.querySelector('#navigation')
-const navCaretIcon = $.querySelector('#caretIcon')
-const wishlistIcon = $.querySelector('#wishlist-icon')
+const navBtn = document.querySelector('#nav')
+const navContainer = document.querySelector('#navigation-container')
+const navigation = document.querySelector('#navigation')
+const navCaretIcon = document.querySelector('#caretIcon')
+const wishlistIcon = document.querySelector('#wishlist-icon')
 
 let isNavOpen = false
 
