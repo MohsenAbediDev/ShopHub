@@ -177,75 +177,74 @@ function addToCart(e) {
 // This function is used to change the count of a product in the product box.
 function changeProductCount(productId, productCartElem, productBoxElem) {
 	// Select the elements for increasing and decreasing the product count
-	const minusCount = $.querySelector(`#product-${productId}-minus`)
-	const productCountElem = $.querySelector(`#product-${productId}-count`)
-	const plusCount = $.querySelector(`#product-${productId}-plus`)
+	const minusCount = document.querySelector(`#product-${productId}-minus`);
+	const productCountElem = document.querySelector(`#product-${productId}-count`);
+	const plusCount = document.querySelector(`#product-${productId}-plus`);
 
-	// Initialize the productsCount object to hold the product id and count
-	const productsCount = {
-		id: Number(productId),
-		count: 1,
+	// Check if the product already exists in the productsCountArray
+	let productIndex = productsCountArray.findIndex((p) => p.id === Number(productId));
+
+	let productsCount;
+	if (productIndex !== -1) {
+		// If product exists, get the existing count
+		productsCount = productsCountArray[productIndex];
+	} else {
+		// If product does not exist, create a new entry
+		productsCount = {
+			id: Number(productId),
+			count: 1,
+		};
+		productsCountArray.push(productsCount); // Add new product count to array
 	}
 
-	// Update the product count display and store it in local storage
-	productCountElem.innerHTML = productsCount.count
+	// Update the product count display
+	productCountElem.innerHTML = productsCount.count;
 
-	productsCountArray.push(productsCount)
-
-	localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
+	// Store the updated array in local storage
+	localStorage.setItem(`products-count`, JSON.stringify(productsCountArray));
 
 	// Add event listener for increasing the product count
 	plusCount.addEventListener('click', () => {
-		productsCount.count++
+		productsCount.count++;
+		productCountElem.innerHTML = productsCount.count;
 
-		// Update local storage with the new count
-		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
-
-		// Update the product count display
-		productCountElem.innerHTML = productsCount.count
-	})
+		// Update the productsCountArray and local storage
+		productsCountArray[productIndex] = productsCount;
+		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray));
+	});
 
 	// Add event listener for decreasing the product count
 	minusCount.addEventListener('click', () => {
-		productsCount.count--
+		if (productsCount.count > 1) {
+			productsCount.count--;
+			productCountElem.innerHTML = productsCount.count;
 
-		// Update the product count display
-		productCountElem.innerHTML = productsCount.count
-
-		// Update local storage with the new count
-		localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
-
-		// If the count reaches zero, remove product from local storage
-		if (productsCount.count == 0) {
-			const productsCount = JSON.parse(localStorage.getItem(`products-count`))
-			const products = JSON.parse(localStorage.getItem('products'))
-
-			// hide the product box and show the cart icon
-			productCartElem.classList.remove('hidden')
-			productBoxElem.classList.add('hidden')
-
-			// Find index of the product with count 0
-			const indexToRemove = productsCount.findIndex((e) => e.count == 0)
-
-			// Remove the product from the array if found
+			// Update local storage
+			productsCountArray[productIndex] = productsCount;
+			localStorage.setItem(`products-count`, JSON.stringify(productsCountArray));
+		} else {
+			// If count reaches 0, remove the product
+			const indexToRemove = productsCountArray.findIndex((p) => p.id === productsCount.id);
 			if (indexToRemove !== -1) {
-				productsCountArray.splice(indexToRemove, 1)
-				products.splice(indexToRemove, 1)
+				productsCountArray.splice(indexToRemove, 1);
 			}
+			localStorage.setItem(`products-count`, JSON.stringify(productsCountArray));
 
-			// Update localStorage with the modified array
-			localStorage.setItem(`products-count`, JSON.stringify(productsCountArray))
-			localStorage.setItem(`products`, JSON.stringify(products))
+			// Hide product box and show cart icon
+			productCartElem.classList.remove('hidden');
+			productBoxElem.classList.add('hidden');
 		}
-	})
+	});
 }
 
 // Change the number of products in the shopping cart
 function numberProduductsCount() {
-	const existingProductsString = localStorage.getItem('products');
-	const productsCount = existingProductsString ? JSON.parse(existingProductsString).length : 0;
+	const existingProductsString = localStorage.getItem('products')
+	const productsCount = existingProductsString
+		? JSON.parse(existingProductsString).length
+		: 0
 
-	cartCount.innerHTML = productsCount;
+	cartCount.innerHTML = productsCount
 }
 
 // Function to display the count of all products based on their IDs
@@ -273,6 +272,10 @@ function showProductsCount() {
 		if (productElem) {
 			productElem.innerHTML = product.count
 		}
+
+		// Re-apply changeProductCount function to manage plus and minus buttons after reload
+		const productBoxElem = document.querySelector(`#product-${productId}-box`)
+		changeProductCount(productId, productCartElem, productBoxElem)
 	})
 }
 
