@@ -1,6 +1,6 @@
 const productApi = 'http://localhost:3000/products'
 const products = []
-const productsCountArray = []
+const productsCountArray = JSON.parse(localStorage.getItem('products-count')) || []
 
 const productsContainer = document.querySelector('#products-container')
 const cartCount = document.querySelector('#cartCount')
@@ -242,9 +242,10 @@ function changeProductCount(productId, productCartElem, productBoxElem) {
 
 // Change the number of products in the shopping cart
 function numberProduductsCount() {
-	const productsCount = JSON.parse(localStorage.getItem('products')).length
+	const existingProductsString = localStorage.getItem('products');
+	const productsCount = existingProductsString ? JSON.parse(existingProductsString).length : 0;
 
-	cartCount.innerHTML = productsCount
+	cartCount.innerHTML = productsCount;
 }
 
 // Function to display the count of all products based on their IDs
