@@ -4,6 +4,7 @@ const productsCountArray = []
 
 const productsContainer = document.querySelector('#products-container')
 const cartCount = document.querySelector('#cartCount')
+const cartProducts = JSON.parse(localStorage.getItem('products'))
 
 fetch(productApi)
 	.then((res) => res.json())
@@ -141,17 +142,6 @@ function errorFetchDatas() {
 	$.querySelector('.errorFetch').classList.remove('hidden')
 }
 
-// Load Cart Element
-window.addEventListener('load', () => {
-	const addToCartElems = document.querySelectorAll('.addToCart')
-
-	addToCartElems.forEach((cartElem) =>
-		cartElem.addEventListener('click', addToCart)
-	)
-
-	numberProduductsCount()
-})
-
 // Add Product To Cart
 function addToCart(e) {
 	const productId = e.target.id
@@ -256,3 +246,45 @@ function numberProduductsCount() {
 
 	cartCount.innerHTML = productsCount
 }
+
+// Function to display the count of all products based on their IDs
+function showProductsCount() {
+	// Retrieve the list of product counts from localStorage and parse it as a JavaScript object
+	const productsCount = JSON.parse(localStorage.getItem('products-count'))
+
+	// Loop through each product count
+	productsCount.forEach((product) => {
+		const productId = product.id
+
+		// Select the HTML elements that display the product count and its cart button
+		const productCountBox = document.querySelector(`#product-${productId}-box`)
+		const productCartElem =
+			document.querySelectorAll('.addToCart')[productId - 1]
+		const productElem = document.querySelector(`#product-${productId}-count`)
+
+		// Check if the productCountBox exists and update its display
+		if (productCountBox) {
+			productCountBox.classList.remove('hidden')
+			productCartElem.classList.add('hidden')
+		}
+
+		// Update the innerHTML of the product element to show the product count
+		if (productElem) {
+			productElem.innerHTML = product.count
+		}
+	})
+}
+
+// Load Cart Element
+window.addEventListener('load', () => {
+	const addToCartElems = document.querySelectorAll('.addToCart')
+
+	addToCartElems.forEach((cartElem) =>
+		cartElem.addEventListener('click', addToCart)
+	)
+
+	if (localStorage.getItem('products-count')) {
+		showProductsCount()
+	}
+	numberProduductsCount()
+})

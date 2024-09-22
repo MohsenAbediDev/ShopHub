@@ -267,7 +267,7 @@ window.addEventListener('load', () => {
 	showProducts(cartProducts)
 
 	// Get count changer buttons
-	const countChangers = $.querySelectorAll('.countChanger')
+	const countChangers = document.querySelectorAll('.countChanger')
 
 	// Get the button to change the count when clicked
 	countChangers.forEach((countChanger) => {
