@@ -283,8 +283,7 @@ window.addEventListener('load', () => {
 		cartElem.addEventListener('click', addToCart)
 	)
 
-	if (localStorage.getItem('products-count')) {
-		showProductsCount()
-	}
+	localStorage.getItem('products-count') && showProductsCount()
+
 	numberProduductsCount()
 })

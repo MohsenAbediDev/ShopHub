@@ -149,22 +149,29 @@ function errorFetchDatas() {
 
 // Delete Product from cart
 function deleteProduct(productIdElem) {
-	// Get Products
+	// Get Products and Product Counts from localStorage
 	const cartProducts = JSON.parse(localStorage.getItem('products'))
+	const productsCount = JSON.parse(localStorage.getItem('products-count'))
 
-	// Filter out the product to delete
+	// Filter out the product to delete from 'products' array
 	const filteredProducts = cartProducts.filter(
 		(product) => product.id != productIdElem
 	)
 
-	// Update local storage
-	localStorage.setItem('products', JSON.stringify(filteredProducts))
+	// Filter out the product to delete from 'products-count' array
+	const filteredProductsCount = productsCount.filter(
+		(product) => product.id != productIdElem
+	)
 
-	// Update Show Products
+	// Update localStorage with the new arrays
+	localStorage.setItem('products', JSON.stringify(filteredProducts))
+	localStorage.setItem('products-count', JSON.stringify(filteredProductsCount))
+
+	// Update Show Products (re-render the product list)
 	productsContainer.innerHTML = ''
 	showProducts(filteredProducts)
 
-	// Check if cart is empty
+	// Check if cart is empty and display appropriate message or picture
 	emptyCart()
 }
 
