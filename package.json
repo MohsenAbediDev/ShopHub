@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MohsenAbediDev/ShopHub#readme",
   "dependencies": {
-    "json-server": "^1.0.0-alpha.23"
+    "json-server": "^1.0.0-alpha.23",
+    "tailwindcss": "^3.4.12"
   }
 }
