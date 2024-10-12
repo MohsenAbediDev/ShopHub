@@ -7,8 +7,8 @@
     "start": "json-server data/db.json"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MohsenAbediDev/ShopHub.git"
+    "type": "github",
+    "url": "https://github.com/MohsenAbediDev/ShopHub.git"
   },
   "author": "MohsenAbediDev",
   "license": "MIT",
