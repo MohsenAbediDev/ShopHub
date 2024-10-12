@@ -1,4 +1,5 @@
 ## ShopHub
+![Screenshot (873)](https://github.com/user-attachments/assets/3302bf6c-3ac7-4b34-a2a5-ff6ea96fca85)
 
 ### Description
 **ShopHub** is an e-commerce platform designed to offer users a seamless online shopping experience. It includes a responsive interface, and a theme switcher.
