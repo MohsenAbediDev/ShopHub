@@ -2866,6 +2866,10 @@ video {
     margin-bottom: 1.25rem;
   }
 
+  .sm\:mb-32 {
+    margin-bottom: 8rem;
+  }
+
   .sm\:flex {
     display: flex;
   }
