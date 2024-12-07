@@ -5,7 +5,7 @@ const emptyCartElem = document.querySelector('.emptyCart')
 
 // Show Products in Cart
 function showProducts(datas) {
-	datas.forEach((data) => {
+	datas && datas.forEach((data) => {
 		const {
 			id,
 			image,
@@ -180,7 +180,7 @@ function emptyCart() {
 	// Get Products
 	const cartProducts = JSON.parse(localStorage.getItem('products'))
 
-	if (cartProducts.length == 0) {
+	if (!cartProducts) {
 		emptyCartElem.classList.remove('hidden')
 	} else {
 		!emptyCartElem.classList.value.includes('hidden') &&
