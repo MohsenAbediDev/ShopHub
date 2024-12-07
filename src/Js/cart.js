@@ -179,9 +179,9 @@ function deleteProduct(productIdElem) {
 // Show Empty Cart Picture
 function emptyCart() {
 	// Get Products
-	const cartProducts = JSON.parse(localStorage.getItem('products'))
+	const cartProducts = JSON.parse(localStorage.getItem('products')) || []
 
-	if (!cartProducts) {
+	if (cartProducts.length == 0) {
 		emptyCartElem.classList.remove('hidden')
 	} else {
 		!emptyCartElem.classList.value.includes('hidden') &&
