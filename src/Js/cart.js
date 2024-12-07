@@ -1,32 +1,33 @@
-const cartProducts = JSON.parse(localStorage.getItem('products'))
+const cartProducts = JSON.parse(localStorage.getItem('products')) || []
 
 const productsContainer = document.querySelector('#products-container')
 const emptyCartElem = document.querySelector('.emptyCart')
 
 // Show Products in Cart
 function showProducts(datas) {
-	datas && datas.forEach((data) => {
-		const {
-			id,
-			image,
-			title,
-			description,
-			colors,
-			size,
-			available,
-			price,
-			off,
-		} = data
+	datas &&
+		datas.forEach((data) => {
+			const {
+				id,
+				image,
+				title,
+				description,
+				colors,
+				size,
+				available,
+				price,
+				off,
+			} = data
 
-		productsContainer.insertAdjacentHTML(
-			'beforeend',
-			`
+			productsContainer.insertAdjacentHTML(
+				'beforeend',
+				`
       <div
 						class="w-full h-36 sm:h-96 flex sm:flex-col rounded-xl bg-white dark:bg-darkGray dark:shadow-none shadow-xl duration-300"
 					>
 						<!--? Left Product Box (Image) -->
 						<div
-							class="min-w-[15%] h-full sm:min-w-full  overflow-hidden transition-colors duration-300"
+							class="min-w-[15%] h-full sm:min-w-full overflow-hidden transition-colors duration-300"
 						>
 							<img
 								class="w-full h-full rounded-l-md object-cover object-center"
@@ -37,7 +38,7 @@ function showProducts(datas) {
 
 						<!--? Right Product Box -->
 						<div
-							class="flex sm:flex-col sm:gap-y-4 w-[85%] my-5 mx-5 sm:mx- justify-between"
+							class="flex sm:flex-col sm:gap-y-4 w-[85%] my-5 mx-5 justify-between"
 						>
 							<div
 								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 dark:text-white"
@@ -132,11 +133,11 @@ function showProducts(datas) {
 						</div>
 					</div>
       `
-		)
+			)
 
-		// Check if cart is have products and show product counts
-		showProductsCount(id)
-	})
+			// Check if cart is have products and show product counts
+			showProductsCount(id)
+		})
 
 	// Check if cart is empty
 	emptyCart()
@@ -201,7 +202,8 @@ function changeProductCount(countChanger) {
 		(product) => product.id == idNumber
 	)
 
-	const countElem = document.querySelector(`#product-${idNumber}-count`)
+	// Select all elements displaying the product count
+	const countElems = document.querySelectorAll(`#product-${idNumber}-count`)
 
 	let countNumber = filteredProductCount.count
 
@@ -245,10 +247,14 @@ function changeProductCount(countChanger) {
 		}
 	}
 
+	// Update the product count in the localStorage
 	filteredProductCount.count = countNumber
-	countElem.innerHTML = countNumber
+	countElems.forEach((countElem) => {
+		// Update the innerHTML of all elements with the new count
+		countElem.innerHTML = countNumber
+	})
 
-	// Update the products count in local storage
+	// Update the products count in localStorage
 	localStorage.setItem('products-count', JSON.stringify(productsCount))
 }
 
@@ -260,14 +266,16 @@ function showProductsCount(productsId) {
 	// Find the product in the array whose id matches the provided productsId
 	const productCount = productsCount.filter((p) => p.id == productsId)[0]
 
-	// Select the HTML element that displays the product count using the product's ID
-	const productElem = document.querySelector(`#product-${productsId}-count`)
-
-	// If the product's ID from localStorage matches the ID extracted from the HTML element
-	if (productCount.id == productElem.id.match(/\d+/)[0]) {
-		// Update the innerHTML of the product element to show the product count
-		productElem.innerHTML = productCount.count
-	}
+	// Select all HTML elements that display the product count using the product's ID
+	const productElems = document.querySelectorAll(`#product-${productsId}-count`)
+	// Loop through each selected element and update its innerHTML
+	productElems.forEach((productElem) => {
+		// If the product's ID from localStorage matches the ID extracted from the HTML element
+		if (productCount.id == productElem.id.match(/\d+/)[0]) {
+			// Update the innerHTML of the product element to show the product count
+			productElem.innerHTML = productCount.count
+		}
+	})
 }
 
 window.addEventListener('load', () => {
