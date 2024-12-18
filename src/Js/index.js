@@ -1,4 +1,4 @@
-const productApi = 'http://localhost:3000/products'
+const productApi = 'https://shophub-server-snf8.onrender.com/products' //if you want connect to the localhost set: localhost:3000/products
 const products = []
 const productsCountArray = JSON.parse(localStorage.getItem('products-count')) || []
 
