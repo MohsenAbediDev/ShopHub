@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	/* Fonts */
+	@font-face {
+		font-family: 'almarai';
+		src: url('/public/Fonts/Almarai-Regular.ttf');
+	}
+
+	/* Base Configs */
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		font-family: 'almarai';
+	}
+}
+
 @layer components {
 	.category {
 		@apply dark:bg-darkGray dark:shadow-none max-w-[8rem] transition-colors duration-300 dark:text-grayText border border-stroke shadow-md rounded-full text-center py-2 px-4;
