@@ -50,21 +50,21 @@ function showProducts(datas) {
 							<div
 								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
-								<p class="dark:text-grayText">Color</p>
-								<span class="text-xl">${colors}</span>
+								<p class="text-black dark:text-grayText">Color</p>
+								<span class="text-xl text-black dark:text-white">${colors}</span>
 							</div>
 
 							<div
 								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
-								<p class="dark:text-grayText">Price</p>
-								<span class="text-xl">${price}</span>
+								<p class="text-black dark:text-grayText">Price</p>
+								<span class="text-xl text-black dark:text-white">${price}</span>
 							</div>
 
 							<div
 								class="max-w-5 sm:hidden flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
-								<p class="dark:text-grayText">Count</p>
+								<p class="text-black dark:text-grayText">Count</p>
 
 								<div class="bg-gray h-6 flex items-center gap-2 rounded-full">
 									<span
@@ -74,7 +74,7 @@ function showProducts(datas) {
 										-
 									</span>
 
-									<span id="product-${id}-count">1</span>
+									<span class="text-black dark:text-white" id="product-${id}-count">1</span>
 
 									<span
 										id="product-${id}-plus"
@@ -87,7 +87,7 @@ function showProducts(datas) {
 
 							<div class="max-w-5 sm:hidden flex flex-col dark:text-white">
 								<button
-									class="deleteProduct w-14 h-14 bg-red dark:text-white rounded-md"
+									class="deleteProduct w-14 h-14 bg-red text-white rounded-md"
 									onclick="deleteProduct(${id})"
 								>
 									Delete
