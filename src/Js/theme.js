@@ -17,7 +17,7 @@ function toggleTheme() {
 
 // Function to apply the theme based on the local storage value
 function changeTheme() {
-	const isHomePage = location.pathname.includes('index') || location.pathname == '/'
+	const isHomePage = location.pathname.includes('ShopHub') || location.pathname == '/'
 
 	// Use JSON.parse to convert the stored value to a boolean
 	isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
