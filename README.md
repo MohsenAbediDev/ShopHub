@@ -1,10 +1,15 @@
 ## ShopHub
+
 ![Screenshot (873)](https://github.com/user-attachments/assets/3302bf6c-3ac7-4b34-a2a5-ff6ea96fca85)
 
+[Live demo](https://mohsenabedidev.github.io/ShopHub/)
+
 ### Description
+
 **ShopHub** is an e-commerce platform designed to offer users a seamless online shopping experience. It includes a responsive interface, and a theme switcher.
 
 ### Features
+
 - Product catalog display
 - Shopping cart management
 - Theme switching (light/dark mode)
@@ -13,6 +18,7 @@
 - Integrated with local storage for cart data
 
 ### Project Structure
+
 ```
 ShopHub/
 ├── public/
@@ -45,9 +51,11 @@ ShopHub/
 ### Usage
 
 1. **Start the development server:**
+
    ```bash
    npm start
    ```
+
    The app will be available at `http://localhost:3000`.
 
 2. **Using Tailwind CSS:**
@@ -56,15 +64,23 @@ ShopHub/
    ```
    You can now edit your Tailwind CSS code.
 
+### Online Server Repository
+
+This repository hosts the server-side code for the ShopHub project.
+
+[ShopHub-Server](https://github.com/MohsenAbediDev/ShopHub-Server)
 
 ### Technologies Used
+
 - **HTML5**
 - **Tailwind Css**
 - **JavaScript**
 - **Json Server** for lightweight database management
 
 ### Contributing
+
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
 ### License
+
 This project is licensed under the MIT License.
