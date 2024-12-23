@@ -6,7 +6,7 @@
 	/* Fonts */
 	@font-face {
 		font-family: 'almarai';
-		src: url('/public/Fonts/Almarai-Regular.ttf') format('truetype');
+		src: url('/public/font/almarai.ttf') format('truetype');
 	}	
 
 	/* Base Configs */
