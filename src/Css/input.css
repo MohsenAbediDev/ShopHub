@@ -6,15 +6,15 @@
 	/* Fonts */
 	@font-face {
 		font-family: 'almarai';
-		src: url('/public/font/almarai.ttf') format('truetype');
-	}	
+		src: url('/font/almarai.ttf') format('truetype');
+	}
 
 	/* Base Configs */
 	* {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
-		font-family: 'almarai';
+		font-family: 'almarai', sans-serif;
 	}
 }
 
