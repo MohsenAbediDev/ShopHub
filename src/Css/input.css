@@ -6,10 +6,10 @@
 	/* Fonts */
 	@font-face {
 		font-family: 'almarai';
-		src: url('/font/almarai.ttf') format('truetype'),
-			url('/font/almarai.woff2') format('woff2'),
-			url('/font/almarai.eot') format('embedded-opentype'),
-			url('/font/almarai.woff') format('woff');
+		src: url('/ShopHub/public/font/almarai.ttf') format('truetype'),
+			url('/ShopHub/public/font/almarai.woff2') format('woff2'),
+			url('/ShopHub/public/font/almarai.eot') format('embedded-opentype'),
+			url('/ShopHub/public/font/almarai.woff2') format('woff');
 		font-display: swap;
 	}
 
