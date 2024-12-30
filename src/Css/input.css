@@ -6,7 +6,11 @@
 	/* Fonts */
 	@font-face {
 		font-family: 'almarai';
-		src: url('/font/almarai.ttf') format('truetype');
+		src: url('/font/almarai.ttf') format('truetype'),
+			url('/font/almarai.woff2') format('woff2'),
+			url('/font/almarai.eot') format('embedded-opentype'),
+			url('/font/almarai.woff') format('woff');
+		font-display: swap;
 	}
 
 	/* Base Configs */
