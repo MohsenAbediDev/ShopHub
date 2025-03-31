@@ -64,12 +64,6 @@ ShopHub/
    ```
    You can now edit your Tailwind CSS code.
 
-### Online Server Repository
-
-This repository hosts the server-side code for the ShopHub project.
-
-[ShopHub-Server](https://github.com/MohsenAbediDev/ShopHub-Server)
-
 ### Technologies Used
 
 - **HTML5**
