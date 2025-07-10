@@ -60,7 +60,7 @@ ShopHub/
 
 2. **Using Tailwind CSS:**
    ```bash
-   tailwindcss -i ./src/Css/input.css -o ./src/Css/output.css --watch
+   npm run tailwind
    ```
    You can now edit your Tailwind CSS code.
 

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server data/db.json"
+    "start": "json-server data/db.json",
+    "tailwind": "tailwindcss -i ./src/Css/input.css -o ./src/Css/output.css --watch --minify"
   },
   "repository": {
     "type": "github",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/MohsenAbediDev/ShopHub#readme",
   "dependencies": {
-    "json-server": "^1.0.0-alpha.23",
-    "tailwindcss": "^3.4.12"
+    "json-server": "^1.0.0-alpha.23"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
   }
 }
