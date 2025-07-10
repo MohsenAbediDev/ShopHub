@@ -3,6 +3,7 @@ const navContainer = document.querySelector('#navigation-container')
 const navigation = document.querySelector('#navigation')
 const navCaretIcon = document.querySelector('#caretIcon')
 const wishlistIcon = document.querySelector('#wishlist-icon')
+const iconLabels = document.querySelectorAll('#navigation span[id$="-label"]')
 
 let isNavOpen = false
 
@@ -12,16 +13,20 @@ const toggleNavigation = () => {
 	if (screenWidth >= 640) {
 		if (!isNavOpen) {
 			openNavigationDesktop()
+			showLabels()
 		} else {
 			closeNavigationDesktop()
+			hideLabels()
 		}
 	}
 
 	if (screenWidth <= 640) {
 		if (!isNavOpen) {
 			openNavigationMobile()
+			showLabels()
 		} else {
 			closeNavigationMobile()
+			hideLabels()
 		}
 	}
 }
@@ -72,6 +77,24 @@ const closeNavigationMobile = () => {
 
 	navCaretIcon.style.transform = 'rotate(90deg)'
 	isNavOpen = false
+}
+
+// Show menu labels
+const showLabels = () => {
+	iconLabels.forEach((label) => {
+		label.style.opacity = '1'
+		label.style.transition = 'opacity 0.3s'
+		label.classList.remove('hidden')
+	})
+}
+
+// Hide menu labels
+const hideLabels = () => {
+	iconLabels.forEach((label) => {
+		label.style.opacity = '0'
+		label.style.transition = 'opacity 0.3s'
+		label.classList.add('hidden')
+	})
 }
 
 navBtn.addEventListener('click', toggleNavigation)

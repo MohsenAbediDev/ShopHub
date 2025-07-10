@@ -53,21 +53,38 @@
 					class="mt-12 px-1 sm:px-2 pt-10 sm:pt-0 overflow-hidden bg-white dark:bg-darkGray shadow-xl rounded-2xl flex items-center sm:justify-center flex-col sm:flex-row sm:gap-6 w-1/2 sm:w-[90%] h-full transition-all duration-300"
 					id="navigation">
 					<!--? Wishlist Icon -->
-					<div class="my-2 relative" id="wishlist-icon">
-						<!--? Notification -->
+					<div
+						class="my-2 relative flex items-center sm:flex-col gap-2 sm:gap-0 sm:gap-y-8"
+						id="wishlist-icon">
+						<!-- Label -->
 						<span
-							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-red">
-							2
+							class="text-lg sm:text-sm text-black dark:text-white transition-all duration-300 hidden opacity-0"
+							id="wishlist-label">
+							Wishlist
 						</span>
 
-						<!--? Icon -->
+						<!-- Badge -->
+						<span
+							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-red">
+							0
+						</span>
+
+						<!-- Icon -->
 						<img
 							class="mr-2 w-9 h-9 cursor-pointer"
 							src="./public/icons/Soild/heart.svg" />
 					</div>
 
 					<!--? Wallet Icon -->
-					<div class="my-8 relative">
+					<div
+						class="my-8 relative flex items-center sm:flex-col gap-2 sm:gap-0 sm:gap-y-8">
+						<!-- Label -->
+						<span
+							class="text-lg sm:text-sm text-black dark:text-white transition-all duration-300 hidden opacity-0"
+							id="Wallet-label">
+							Wallet
+						</span>
+
 						<!--? Icon -->
 						<img
 							class="w-9 h-9 cursor-pointer"
@@ -75,16 +92,41 @@
 					</div>
 
 					<!--? Cart Icon -->
-					<a class="my-6 relative" href="./">
+					<a
+						href="cart.html"
+						class="my-6 relative flex items-center sm:flex-col gap-2 sm:gap-0 sm:gap-y-8">
+						<!-- Label -->
+						<span
+							class="text-lg sm:text-sm text-black dark:text-white transition-all duration-300 hidden opacity-0"
+							id="Cart-label">
+							Home
+						</span>
+
+						<!--? Badge -->
+						<span
+							class="absolute right-0 w-5 h-5 text-white text-center bottom-9 rounded-full text-[12px] bg-blue"
+							id="cartCount"
+							>0</span
+						>
+
 						<!--? Icon -->
 						<img
 							class="w-9 h-9 cursor-pointer"
 							id="homeIcon"
 							src="./public/icons/Soild/home-light.svg" />
+						
 					</a>
 
 					<!--? Profile Icon -->
-					<div class="my-6 relative">
+					<div
+						class="my-6 relative flex items-center sm:flex-col gap-2 sm:gap-0 sm:gap-y-8">
+						<!-- Label -->
+						<span
+							class="text-lg sm:text-sm text-black dark:text-white transition-all duration-300 hidden opacity-0"
+							id="Profile-label">
+							Profile
+						</span>
+
 						<!--? Icon -->
 						<div
 							class="w-9 h-9 flex items-center cursor-pointer border border-icon rounded-full">
@@ -95,7 +137,15 @@
 					</div>
 
 					<!--? Theme Icon -->
-					<div class="my-6 relative">
+					<div
+						class="my-6 relative flex items-center sm:flex-col gap-2 sm:gap-0 sm:gap-y-8">
+						<!-- Label -->
+						<span
+							class="text-lg sm:text-sm text-black dark:text-white transition-all duration-300 hidden opacity-0"
+							id="Theme-label">
+							Theme
+						</span>
+
 						<!--? Icon -->
 						<img
 							id="theme"
