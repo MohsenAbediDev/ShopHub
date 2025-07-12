@@ -30,7 +30,7 @@ function showProducts(datas) {
 							class="min-w-[15%] h-full sm:min-w-full overflow-hidden transition-colors duration-300"
 						>
 							<img
-								class="w-full h-full rounded-l-md object-cover object-center"
+								class="w-[130px] sm:w-full h-full rounded-l-md object-cover object-center"
 								src=${image}
 								alt=${title}
 							/>
@@ -41,28 +41,28 @@ function showProducts(datas) {
 							class="flex sm:flex-col sm:gap-y-4 w-[85%] my-5 mx-5 justify-between"
 						>
 							<div
-								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 dark:text-white"
+								class="flex flex-col sm:flex-row sm:gap-5 dark:text-white"
 							>
 								<p class="dark:text-grayText">Name</p>
 								<span class="text-xl dark:text-white">${title}</span>
 							</div>
 
 							<div
-								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+								class="flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
 								<p class="text-black dark:text-grayText">Color</p>
 								<span class="text-xl text-black dark:text-white">${colors}</span>
 							</div>
 
 							<div
-								class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+								class="flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
 								<p class="text-black dark:text-grayText">Price</p>
 								<span class="text-xl text-black dark:text-white">${price}</span>
 							</div>
 
 							<div
-								class="max-w-5 sm:hidden flex flex-col sm:flex-row sm:gap-5 text-white"
+								class="sm:hidden flex flex-col sm:flex-row sm:gap-5 text-white"
 							>
 								<p class="text-black dark:text-grayText">Count</p>
 
@@ -85,7 +85,7 @@ function showProducts(datas) {
 								</div>
 							</div>
 
-							<div class="max-w-5 sm:hidden flex flex-col dark:text-white">
+							<div class="sm:hidden flex flex-col dark:text-white">
 								<button
 									class="deleteProduct w-14 h-14 bg-red text-white rounded-md"
 									onclick="deleteProduct(${id})"
@@ -98,7 +98,7 @@ function showProducts(datas) {
 								class="hidden sm:w-full sm:flex sm:items-center sm:justify-between"
 							>
 								<div
-									class="max-w-5 flex flex-col sm:flex-row sm:gap-5 text-white"
+									class="flex flex-col sm:flex-row sm:gap-5 text-white"
 								>
 									<p class="dark:text-grayText">Count</p>
 
@@ -121,7 +121,7 @@ function showProducts(datas) {
 									</div>
 								</div>
 
-								<div class="max-w-5 flex flex-col dark:text-white">
+								<div class="flex flex-col dark:text-white">
 									<button
 										class="deleteProduct w-14 h-10 bg-red dark:text-white rounded-md"
 										onclick="deleteProduct(${id})"
